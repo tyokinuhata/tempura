@@ -6,17 +6,14 @@ npm install gulp
 
 ```
 npm install gulp-notify
-
 ```
 
 ```
 npm install gulp-plumber
-
 ```
 
 ```
 npm install gulp-sass
-
 ```
 
 ```
