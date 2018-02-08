@@ -1,0 +1,30 @@
+{
+  "name": "web-introduction",
+  "version": "1.0.0",
+  "description": "``` npm install gulp ```",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser": "^0.2.6",
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyokinuhata/web-introduction.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tyokinuhata/web-introduction/issues"
+  },
+  "homepage": "https://github.com/tyokinuhata/web-introduction#readme"
+}

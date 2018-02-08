@@ -1,31 +1,7 @@
 # インストール
 
 ```
-npm install gulp
-```
-
-```
-npm install gulp-notify
-```
-
-```
-npm install gulp-plumber
-```
-
-```
-npm install gulp-sass
-```
-
-```
-npm install gulp-autoprefixer
-```
-
-```
-npm install gulp-pug
-```
-
-```
-npm install browser-sync
+$ npm i
 ```
 
 # Gulpコマンド
@@ -33,17 +9,17 @@ npm install browser-sync
 ローカルサーバの起動
 
 ```
-gulp
+$ gulp
 ```
 
 PugとSassの自動コンパイル
 
 ```
-gulp watch
+$ gulp watch
 ```
 
 PugとSassのコンパイル
 
 ```
-gulp compile
+$ gulp compile
 ```
