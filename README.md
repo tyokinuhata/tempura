@@ -1,10 +1,10 @@
-# インストール
+# Module install
 
 ```
 $ npm i
 ```
 
-# Gulpコマンド
+# How to use
 
 ローカルサーバの起動
 
@@ -24,7 +24,7 @@ PugとSassのコンパイル
 $ gulp compile
 ```
 
-CSSの圧縮
+CSSとJSの圧縮
 
 ```
 $ gulp min
