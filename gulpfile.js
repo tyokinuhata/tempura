@@ -5,6 +5,7 @@ const sass = require('gulp-sass')
 const autoprefixer = require('gulp-autoprefixer')
 const pug = require('gulp-pug')
 const browserSync = require('browser-sync')
+const minifyJs = require('gulp-uglify')
 const minifyCss = require('gulp-clean-css')
 
 // Pugのコンパイル
@@ -36,6 +37,20 @@ gulp.task('sass-watch', [ 'sass' ], () => {
     watcher.on('change', event => {})
 })
 
+// CSSの圧縮
+gulp.task('minifyCss', () => {
+    return gulp.src('public/css/*.css')
+        .pipe(minifyCss())
+        .pipe(gulp.dest('public/css'))
+})
+
+// JSの圧縮
+gulp.task('minifyJs', () => {
+    return gulp.src('assets/js/app.js')
+        .pipe(minifyJs())
+        .pipe(gulp.dest('public/js'))
+})
+
 // ホットリロード
 gulp.task('browser-sync', () => {
     browserSync.init({
@@ -51,21 +66,14 @@ gulp.task('browser-sync', () => {
     })
 })
 
-// CSSの圧縮
-gulp.task('minifyCss', () => {
-    return gulp.src('public/css/*.css')
-        .pipe(minifyCss())
-        .pipe(gulp.dest('public/css'))
-})
-
 // Pug, Sassのコンパイル
 gulp.task('compile', [ 'pug', 'sass' ])
 
 // Pug, Sassの自動コンパイル
 gulp.task('watch', [ 'pug-watch', 'sass-watch' ])
 
-// 圧縮
-gulp.task('min', [ 'minifyCss' ])
+// CSS, JSの圧縮
+gulp.task('min', [ 'minifyCss', 'minifyJs' ])
 
 // デフォルト
 gulp.task('default', [ 'browser-sync' ])
