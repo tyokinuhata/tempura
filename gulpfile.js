@@ -5,6 +5,7 @@ const sass = require('gulp-sass')
 const autoprefixer = require('gulp-autoprefixer')
 const pug = require('gulp-pug')
 const browserSync = require('browser-sync')
+const minifyCss = require('gulp-clean-css')
 
 // Pugのコンパイル
 gulp.task('pug', () => {
@@ -50,11 +51,21 @@ gulp.task('browser-sync', () => {
     })
 })
 
+// CSSの圧縮
+gulp.task('minifyCss', () => {
+    return gulp.src('public/css/*.css')
+        .pipe(minifyCss())
+        .pipe(gulp.dest('public/css'))
+})
+
 // Pug, Sassのコンパイル
 gulp.task('compile', [ 'pug', 'sass' ])
 
 // Pug, Sassの自動コンパイル
 gulp.task('watch', [ 'pug-watch', 'sass-watch' ])
+
+// 圧縮
+gulp.task('min', [ 'minifyCss' ])
 
 // デフォルト
 gulp.task('default', [ 'browser-sync' ])
