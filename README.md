@@ -24,7 +24,7 @@ PugとSassのコンパイル
 $ gulp compile
 ```
 
-CSSとJSの圧縮
+HTML, CSS, JSの圧縮
 
 ```
 $ gulp min
