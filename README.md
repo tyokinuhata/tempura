@@ -23,3 +23,9 @@ PugとSassのコンパイル
 ```
 $ gulp compile
 ```
+
+CSSの圧縮
+
+```
+$ gulp min
+```
