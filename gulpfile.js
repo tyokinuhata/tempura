@@ -7,6 +7,7 @@ const pug = require('gulp-pug')
 const browserSync = require('browser-sync')
 const minifyJs = require('gulp-uglify')
 const minifyCss = require('gulp-clean-css')
+const minifyHtml = require('gulp-minify-html');
 
 // Pugのコンパイル
 gulp.task('pug', () => {
@@ -36,6 +37,12 @@ gulp.task('sass-watch', [ 'sass' ], () => {
     const watcher = gulp.watch('./assets/sass/*.scss', [ 'sass' ])
     watcher.on('change', event => {})
 })
+
+gulp.task('minifyHtml', () => {
+    return gulp.src('public/*.html')
+        .pipe(minifyHtml({ empty: true }))
+        .pipe(gulp.dest('public'))
+});
 
 // CSSの圧縮
 gulp.task('minifyCss', () => {
@@ -73,7 +80,7 @@ gulp.task('compile', [ 'pug', 'sass' ])
 gulp.task('watch', [ 'pug-watch', 'sass-watch' ])
 
 // CSS, JSの圧縮
-gulp.task('min', [ 'minifyCss', 'minifyJs' ])
+gulp.task('min', [ 'minifyCss', 'minifyJs', 'minifyHtml' ])
 
 // デフォルト
 gulp.task('default', [ 'browser-sync' ])
