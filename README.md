@@ -6,25 +6,13 @@ $ npm i
 
 # How to use
 
-ローカルサーバの起動
+Start up local server
 
 ```
 $ gulp
 ```
 
-PugとSassの自動コンパイル
-
-```
-$ gulp watch
-```
-
-PugとSassのコンパイル
-
-```
-$ gulp compile
-```
-
-HTML, CSS, JSの圧縮
+Compress HTML, CSS and JS
 
 ```
 $ gulp min

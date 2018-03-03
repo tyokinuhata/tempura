@@ -7,7 +7,8 @@ const pug = require('gulp-pug')
 const browserSync = require('browser-sync')
 const minifyJs = require('gulp-uglify')
 const minifyCss = require('gulp-clean-css')
-const minifyHtml = require('gulp-minify-html');
+const minifyHtml = require('gulp-minify-html')
+const runSequence = require('run-sequence')
 
 // Pugのコンパイル
 gulp.task('pug', () => {
@@ -18,7 +19,7 @@ gulp.task('pug', () => {
 })
 
 // Pugの自動コンパイル
-gulp.task('pug-watch', [ 'pug' ], () => {
+gulp.task('pugWatch', [ 'pug' ], () => {
     const watcher = gulp.watch('./assets/pug/*.pug', [ 'pug' ])
     watcher.on('change', event => {})
 })
@@ -33,7 +34,7 @@ gulp.task('sass', () => {
 })
 
 // Sassの自動コンパイル
-gulp.task('sass-watch', [ 'sass' ], () => {
+gulp.task('sassWatch', [ 'sass' ], () => {
     const watcher = gulp.watch('./assets/sass/*.scss', [ 'sass' ])
     watcher.on('change', event => {})
 })
@@ -59,7 +60,7 @@ gulp.task('minifyJs', () => {
 })
 
 // ホットリロード
-gulp.task('browser-sync', () => {
+gulp.task('browserSync', () => {
     browserSync.init({
         server: {
             baseDir: './public'
@@ -77,10 +78,10 @@ gulp.task('browser-sync', () => {
 gulp.task('compile', [ 'pug', 'sass' ])
 
 // Pug, Sassの自動コンパイル
-gulp.task('watch', [ 'pug-watch', 'sass-watch' ])
+gulp.task('watch', [ 'pugWatch', 'sassWatch' ])
 
 // CSS, JSの圧縮
 gulp.task('min', [ 'minifyCss', 'minifyJs', 'minifyHtml' ])
 
 // デフォルト
-gulp.task('default', [ 'browser-sync' ])
+gulp.task('default', [ 'watch', 'browserSync', ])
