@@ -6,6 +6,11 @@ $ npm i
 
 # How to use
 
+Create template
+```
+$ npm run template
+```
+
 Start up local server
 
 ```
